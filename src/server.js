@@ -15,8 +15,10 @@ app.get('/', (req,  res) => {
     const packer = new docx.Packer();
 
     packer.toBuffer(doc).then((buffer) => {
-        fs.writeFileSync("My Document.docx", buffer);
+        fs.writeFileSync('My Document.docx', buffer);
     });
+
+    res.status(200).send('Ok');
 });
 
 app.listen(5555);
